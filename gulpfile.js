@@ -133,6 +133,20 @@ gulp.task('styles-deploy', function() {
 });
 
 
+
+
+//move all font files
+gulp.task('fonts', function() {
+    
+    gulp.src(['scripts/vendors/foundation-icon-fonts/**/*', 'scripts/vendors/foundation-icon-fonts/*.eot', 'scripts/vendors/foundation-icon-fonts/*.svg', 'scripts/vendors/foundation-icon-fonts/*.ttf', 'scripts/vendors/foundation-icon-fonts/*.woff', '!scripts/vendors/foundation-icon-fonts/README.md'])
+        .pipe(gulp.dest('app/fonts'));
+
+});
+
+
+
+
+
 //basically just keeping an eye on all HTML files
 gulp.task('html', function() {
     //watch any and all HTML files and refresh when something changes
@@ -189,7 +203,7 @@ gulp.task('scaffold', function() {
 //  startup the web server,
 //  start up browserSync
 //  compress all scripts and SCSS files
-gulp.task('default', ['browserSync', 'scripts', 'styles'], function() {
+gulp.task('default', ['browserSync', 'scripts', 'styles', 'fonts'], function() {
     //a list of watchers, so it will watch all of the following files waiting for changes
     gulp.watch('app/scripts/src/**', ['scripts']);
     gulp.watch('app/styles/scss/**', ['styles']);
