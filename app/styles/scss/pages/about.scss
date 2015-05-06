@@ -1,0 +1,65 @@
+@import "../config/_settings";
+
+
+.about {
+    
+    h2,
+    h3,
+    h4 {
+        font-family: 'oswald', sans-serif;
+    }
+    
+    .bio {
+        margin-top: 40px;
+    }
+    
+    .facts {
+        
+        p {
+            margin: 10px 0 0 0;
+        }
+        
+        ul {
+            margin-top: 0;            
+        }
+        
+    }
+    
+    .icon-bar {
+        
+        .item {
+            padding-right: 15px;
+            color: $jet;
+                    
+            i {
+                color: $jet;                
+            }
+                
+            &:hover {
+                color: $aluminum;
+                    
+                i {
+                    color: $aluminum;
+                }
+                
+            }
+                
+        }
+            
+    }
+    
+    .timeline {
+        
+        ul {
+            list-style-type: none;
+            margin-left: 0;
+            
+            li {
+                margin-bottom: 10px;
+            }
+            
+        }
+        
+    }
+    
+}

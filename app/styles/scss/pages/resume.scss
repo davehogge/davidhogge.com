@@ -1,0 +1,116 @@
+@import "../config/_settings";
+
+.resume {
+    
+    .jumbo {
+        background-color: $primary-color;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    
+        h1 {
+            padding-top: 0.85em;
+            padding-bottom: 0.5em;
+            font-size: 7.5em; /* 75px */
+            line-height: 0.7;
+            text-align: center;
+            font-family: 'condiment', cursive;
+            color: $ghost;
+            transition: all 0s linear;
+            text-rendering: optimizeLegibility;
+        }
+        
+        h2 {
+            margin-bottom: 10px;
+            font-weight: normal;
+            font-size: 1.0em;
+            font-style: italic;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            overflow: hidden;
+            padding: 0 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: $ghost;
+        }
+
+        h2:before,
+        h2:after {
+            background-color: $ghost;
+            content: "";
+            display: inline-block;
+            height: 1px;
+            vertical-align: middle;
+            width: 25%;
+            margin: 0 10px;
+        }
+        
+    }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            
+            li {
+                padding-bottom: 10px;
+            }
+            
+        }
+        
+        h3 {
+            font-size: 18px;
+            font-family: 'oswald', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-family: 'oswald', sans-serif;
+            line-height: 0.3;
+            margin-top: 10px;
+        }
+        
+        .secondary { 
+            color: rgba($jet, .6); 
+        }
+        
+        span {
+            font-size: 14px;
+            font-family: 'lato', sans-serif;
+            font-style: italic;
+            color: rgba($jet, .6);
+            
+            &.secondary { 
+                font-size: 14px;
+                font-size: inherit;
+                font-family: inherit;
+                font-style: inherit;
+            }
+            
+        }
+        
+        .icon-bar {
+            
+            
+            
+            .item {
+                padding-right: 15px;
+                color: $jet;
+            
+                i {
+                    color: $jet;                
+                }
+                
+                &:hover {
+                    color: $aluminum;
+                    
+                    i {
+                        color: $aluminum;
+                    }
+                
+                }
+                
+            }
+            
+        }
+        
+}
