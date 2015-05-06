@@ -1,0 +1,6 @@
+.DS_Store
+.sass-cache
+node_modules
+app/scripts/vendors
+app/styles/app.css
+app/scripts/app.js
