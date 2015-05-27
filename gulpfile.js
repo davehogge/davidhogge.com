@@ -34,7 +34,8 @@ gulp.task('browserSync', function() {
 
 //compressing images & handle SVG files
 gulp.task('images', function(tmp) {
-    gulp.src(['app/images/*.jpg', 'app/images/*.png'])
+    //gulp.src(['app/images/*.jpg', 'app/images/*.png'])
+    gulp.src(['src/images/*.jpg', 'src/images/*.png'])
         .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
         .pipe(gulp.dest('app/images'));
 });
@@ -50,8 +51,8 @@ gulp.task('images-deploy', function() {
 //compiling our Javascripts
 gulp.task('scripts', function() {
     //this is where our dev JS scripts are
-    //return gulp.src(['app/scripts/src/_includes/**/*.js', 'app/scripts/src/**/*.js'])
-    return gulp.src(['app/scripts/vendors/_includes/**/*.js', 'app/scripts/vendors/**/*.js', 'app/scripts/app/**/*.js'])
+    //return gulp.src(['app/scripts/vendors/_includes/**/*.js', 'app/scripts/vendors/**/*.js', 'app/scripts/app/**/*.js'])
+    return gulp.src(['src/scripts/vendors/_includes/**/*.js', 'src/scripts/app/**/*.js'])
     //return gulp.src(['app/scripts/src/app/**/*.js'])
                 //this is the filename of the compressed version of our JS
                .pipe(concat('app.js'))
@@ -69,8 +70,8 @@ gulp.task('scripts', function() {
 //compiling our Javascripts for deployment
 gulp.task('scripts-deploy', function() {
     //this is where our dev JS scripts are
-    //return gulp.src(['app/scripts/src/_includes/**/*.js', 'app/scripts/src/**/*.js'])
-    return gulp.src(['app/scripts/vendors/_includes/**/*.js', 'app/scripts/vendors/**/*.js', 'app/scripts/app/**/*.js'])
+    //return gulp.src(['app/scripts/vendors/_includes/**/*.js', 'app/scripts/vendors/**/*.js', 'app/scripts/app/**/*.js'])
+    return gulp.src(['src/scripts/vendors/_includes/**/*.js', 'src/scripts/vendors/**/*.js', 'src/scripts/app/**/*.js'])
     //return gulp.src(['app/scripts/src/app/**/*.js'])
                 //this is the filename of the compressed version of our JS
                .pipe(concat('app.js'))
@@ -84,14 +85,16 @@ gulp.task('scripts-deploy', function() {
 //compiling our SCSS files
 gulp.task('styles', function() {
     //the initializer / master SCSS file, which will just be a file that imports everything
-    return gulp.src('app/styles/scss/init.scss')
+    //return gulp.src('app/styles/scss/init.scss')
+    return gulp.src('src/styles/init.scss')
                 //get sourceMaps ready
                 .pipe(sourceMaps.init())
                 //include SCSS and list every "include" folder
                .pipe(sass({
                       errLogToConsole: true,
                       includePaths: [
-                          'app/styles/scss/'
+                          //'app/styles/scss/'
+                          'src/styles/'
                       ]
                }))
                .pipe(autoprefixer({
@@ -114,11 +117,13 @@ gulp.task('styles', function() {
 //compiling our SCSS files for deployment
 gulp.task('styles-deploy', function() {
     //the initializer / master SCSS file, which will just be a file that imports everything
-    return gulp.src('app/styles/scss/init.scss')
+    //return gulp.src('app/styles/scss/init.scss')
+	return gulp.src('src/styles/init.scss')
                 //include SCSS includes folder
                .pipe(sass({
                       includePaths: [
-                          'app/styles/scss',
+                          //'app/styles/scss',
+						  'src/styles/',
                       ]
                }))
                .pipe(autoprefixer({
@@ -205,9 +210,12 @@ gulp.task('scaffold', function() {
 //  compress all scripts and SCSS files
 gulp.task('default', ['browserSync', 'scripts', 'styles', 'fonts'], function() {
     //a list of watchers, so it will watch all of the following files waiting for changes
-    gulp.watch('app/scripts/src/**', ['scripts']);
-    gulp.watch('app/styles/scss/**', ['styles']);
-    gulp.watch('app/images/**', ['images']);
+    //gulp.watch('app/scripts/src/**', ['scripts']);
+    gulp.watch('src/scripts/src/**', ['scripts']);
+    //gulp.watch('app/styles/scss/**', ['styles']);
+    gulp.watch('src/styles/scss/**', ['styles']);
+    //gulp.watch('app/images/**', ['images']);
+    gulp.watch('src/images/**', ['images']);
     gulp.watch('app/*.html', ['html']);
 });
 
